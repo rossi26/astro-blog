@@ -1,0 +1,23 @@
+---
+export interface Props {
+  rankingItems?: string[];
+}
+const { rankingItems } = Astro.props as Props;
+
+---
+<div class="sidebar">
+    <ul class="ranking">
+        {rankingItems.map(rankingItem => (
+            <li class="rankingelement">{rankingItem}</li>
+          ))}
+    </ul>
+</div>
+
+<style>
+ .sidebar{
+  text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+ }
+
+</style>

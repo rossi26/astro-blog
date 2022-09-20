@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Showcase from '../components/Showcase.astro';
 import Features from '../components/Features.astro';
 import Tabs from '../components/Tabs.astro';
+import Ranking  from '../components/ranking.astro';
 ---
 
 <Layout>
@@ -10,7 +11,9 @@ import Tabs from '../components/Tabs.astro';
 	<Features />
 	
 	<section class="page-content">
+
 		<div class="container">
+			<div>
 			<h2>Get Started With Astro</h2>
 			<p>
 				Get a new Astro project up and running locally with our helpful
@@ -29,5 +32,22 @@ import Tabs from '../components/Tabs.astro';
 				iusto error molestias dolorum, necessitatibus labore?
 			</p>
 		</div>
+		<Ranking rankingItems={['Amex', 'curve', 'revolut']} />
+
+		</div>
 	</section>
 </Layout>
+<style>	
+.container {
+	display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-gap: 20px;
+   
+	}
+	
+	@media (max-width: 500px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
