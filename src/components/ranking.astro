@@ -8,10 +8,15 @@ const { rankingItems } = Astro.props as Props;
 <div class="sidebar">
     <ul class="ranking">
         {rankingItems.map(rankingItem => (
-            <li class="rankingelement">{rankingItem}</li>
+            <li class="rankingelement">
+              {rankingItem} 
+              </li>
           ))}
     </ul>
 </div>
+
+
+
 
 <style>
  .sidebar{

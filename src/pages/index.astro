@@ -4,6 +4,14 @@ import Showcase from '../components/Showcase.astro';
 import Features from '../components/Features.astro';
 import Tabs from '../components/Tabs.astro';
 import Ranking  from '../components/ranking.astro';
+import Card from '../components/Card.astro';
+
+const posts = await Astro.glob('../posts/*.md');
+const sortedPosts = posts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
+const lastPosts = sortedPosts.slice(0, 3);
+
+
+
 ---
 
 <Layout>
@@ -32,12 +40,36 @@ import Ranking  from '../components/ranking.astro';
 				iusto error molestias dolorum, necessitatibus labore?
 			</p>
 		</div>
-		<Ranking rankingItems={['Amex', 'curve', 'revolut']} />
-
+<!-- 		<Ranking rankingItems={['Amex', 'curve', 'revolut']} />
+ -->
 		</div>
+		<section class="recent-post">
+			
+			<div class="post-container">
+			{lastPosts.map(post => (
+			  <Card>
+				<h3>{post.frontmatter.title}</h3>
+				<div>
+				Written by <strong>{post.frontmatter.author} </strong> on {new Date(post.frontmatter.date).toLocaleDateString()}
+			  </div>
+				<p>{post.frontmatter.excerpt}</p>  
+				<a class="btn" href={`/${post.frontmatter.slug}`}>Read More</a>
+			  </Card>
+			))}
+			</div>
+			<div class="text-sm">
+				<a href="/blog">View all Posts →</a>
+			  </div>
+		</section>
 	</section>
 </Layout>
 <style>	
+.text-sm{
+	max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  text-align: right;
+}
 .container {
 	display: grid;
     grid-template-columns: 5fr 1fr;
@@ -47,6 +79,22 @@ import Ranking  from '../components/ranking.astro';
 	
 	@media (max-width: 500px) {
   .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.recent-post .post-container{
+	display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 0 20px;
+    margin: 30px auto;
+	max-width: 1200px;
+  padding: 0 30px
+}
+
+@media (max-width: 500px) {
+  .recent-post .post-container {
     grid-template-columns: 1fr;
   }
 }

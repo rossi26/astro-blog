@@ -1,5 +1,7 @@
 ---
 import logo from '../images/logo.svg'
+import Darkmode from './Darkmode.astro';
+import darkmode from './Darkmode.astro'
 ---
 
 <header class="header">
@@ -14,12 +16,16 @@ import logo from '../images/logo.svg'
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/blog">Blog</a></li>
+        <li>
+          <Darkmode />
+        </li>
       </ul>
     </nav>
   </div>
 </header>
 
 <style>
+
   .header {
   height: 70px;
   background: var(--color-primary);
