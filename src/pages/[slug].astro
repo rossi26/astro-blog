@@ -30,5 +30,137 @@ const { Content, frontmatter } = Astro.props.post;
         <Content />
       </Card>
     </div>
+    <!-- Load font awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- The social media icon bar -->
+    <div class="icon-bar">
+      <a href="https://bit.ly/2J6arSu" class="facebook"><i class="fa fa-facebook"></i></a>
+  <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+  <a href="https://bit.ly/2HbA8z8" class="linkedin"><i class="fa fa-linkedin"></i></a>
+  <a href="https://wa.me/?text=https%3A//webnauti.com/business-model-canvas-come-guadagna-amazon" class="whatsapp"><i class="fa fa-whatsapp"></i></a>
+  <p class="share"><i class="fa fa-share-alt"></i></p>
+     
+</div>
   </section>
 </Layout>
+
+<style>
+ .icon-bar {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 0;
+}
+
+
+/* Style the icon bar links */
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+}
+
+.icon-bar p {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  color: grey;
+  font-size: 20px;
+}
+
+
+/* Style the social media icons with color, if you want */
+.icon-bar a:hover {
+  background-color:#ffffff00;
+	color:black;
+}
+
+.facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.google {
+  background: #dd4b39;
+  color: white;
+}
+
+.linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+
+.share{
+	color: black;
+}
+
+.whatsapp {
+  background: #25D366;
+  color: white;
+}
+@media screen and (max-width: 768px) {
+ body {
+	font-size: 18px;
+}
+
+	
+.icon-bar {
+	background-color:black;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+	  -webkit-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(60%);
+	top:initial;
+	
+}
+
+/* Style the icon bar links */
+.icon-bar a {
+	background-color: #ffffff00;
+	float: left;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+	padding-left:10%;
+	padding-right:10%;
+	
+}
+.icon-bar p {
+	background-color: #ffffff00;
+  float: left;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+	color:white;
+	padding-left:10%;
+	padding-right:10%;
+
+}
+/* Style the social media icons with color, if you want */
+.icon-bar a:hover {
+  background-color: #12181f;
+	color:white;
+}
+	
+		
+}
+
+</style>

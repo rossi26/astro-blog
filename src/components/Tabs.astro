@@ -5,7 +5,7 @@ export interface Props {
   contents: string[];
 }
 
-const { headings, contents, activeTextColor = '#A741FF' } = Astro.props as Props;
+const { headings, contents, activeTextColor = '#00ABB3' } = Astro.props as Props;
 ---
 
 <div class="tabs">
@@ -28,8 +28,8 @@ const { headings, contents, activeTextColor = '#A741FF' } = Astro.props as Props
 
   .tabs-header {
     display: flex;
-    background: #333;
-    color: #fff;
+    background: #3C4048;
+    color: #EAEAEA;
     padding: 10px 20px;
   }
 
@@ -41,9 +41,10 @@ const { headings, contents, activeTextColor = '#A741FF' } = Astro.props as Props
   .tabs-content {
     font-size: 18px;
     padding: 20px;
-    border: 1px solid #333;
+    border: 1px solid #3C4048;
     font-weight: bold;
-    background: #f4f4f4;
+    background: #EAEAEA;
+    color:#3C4048
   }
 </style>
 
@@ -59,7 +60,7 @@ const { headings, contents, activeTextColor = '#A741FF' } = Astro.props as Props
     function setTab(index) {
       if (current_tab_index > -1) {
         tab_headers[current_tab_index].style.fontWeight = 400;
-        tab_headers[current_tab_index].style.color = '#fff';
+        tab_headers[current_tab_index].style.color = '#EAEAEA';
         tab_contents[current_tab_index].style.display = 'none';
       }
       tab_headers[index].style.fontWeight = 800;
