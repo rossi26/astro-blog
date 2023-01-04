@@ -16,7 +16,25 @@ const lastPosts = sortedPosts.slice(0, 3);
 
 <Layout>
 	<Showcase showExtra={true} />
-	<Features />
+	<section class="recent-post">
+			
+		<div class="post-container">
+		{lastPosts.map(post => (
+		  <Card>
+			<h3>{post.frontmatter.title}</h3>
+			<div>
+			Written by <strong>{post.frontmatter.author} </strong> on {new Date(post.frontmatter.date).toLocaleDateString()}
+		  </div>
+			<p>{post.frontmatter.excerpt}</p>  
+			<a class="btn" href={`/${post.frontmatter.slug}`}>Read More</a>
+		  </Card>
+		))}
+		</div>
+		<div class="text-sm">
+			<a href="/blog">View all Posts →</a>
+		  </div>
+	</section>
+	<!-- <Features /> -->
 	
 	<section class="page-content">
 
@@ -40,27 +58,16 @@ const lastPosts = sortedPosts.slice(0, 3);
 				iusto error molestias dolorum, necessitatibus labore?
 			</p>
 		</div>
-		<!-- <Ranking rankingItems={['Amex', 'curve', 'revolut']} /> -->
+		
+		
 
 		</div>
 		<section class="recent-post">
 			
-			<div class="post-container">
-			{lastPosts.map(post => (
-			  <Card>
-				<h3>{post.frontmatter.title}</h3>
-				<div>
-				Written by <strong>{post.frontmatter.author} </strong> on {new Date(post.frontmatter.date).toLocaleDateString()}
-			  </div>
-				<p>{post.frontmatter.excerpt}</p>  
-				<a class="btn" href={`/${post.frontmatter.slug}`}>Read More</a>
-			  </Card>
-			))}
-			</div>
-			<div class="text-sm">
-				<a href="/blog">View all Posts →</a>
-			  </div>
+			<Ranking  />
+
 		</section>
+
 	</section>
 </Layout>
 <style>	
