@@ -1,0 +1,74 @@
+<form>
+    <input type="text" id="search" placeholder="Search for articles, photos, and more...">
+    <button type="submit"><i class="fa fa-search"></i></button>
+   
+  </form>
+
+  <div id="results" />
+
+<script is:inline>
+  document.querySelector('#search')?.addEventListener('input', async (e) => {
+    // only load the pagefind script once
+    if (e.target.dataset.loaded !== 'true') {
+      e.target.dataset.loaded = 'true'
+      // load the pagefind script
+      window.pagefind = await import("/pagefind/pagefind.js");
+    }
+
+    // search the index using the input value
+    const search = await window.pagefind.search(e.target.value)
+
+    // clear the old results
+    document.querySelector('#results').innerHTML = ''
+
+    // add the new results
+    for (const result of search.results) {
+      const data = await result.data()
+      document.querySelector('#results').innerHTML += `
+        <a href="${data.url}">
+          <h3>${data.meta.title}</h3>
+          <p>${data.excerpt}</p>
+        </a>`
+    }
+  })
+</script>
+  
+  <style>
+    form {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 6px 8px;
+  font-size: 14px;
+  border: none;
+  background-color: transparent;
+}
+
+button[type="submit"] {
+  padding: 6px 8px;
+  font-size: 14px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+a {
+  margin-left: 8px;
+  font-size: 14px;
+  color: #666;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #000;
+}
+
+  </style>
+
+

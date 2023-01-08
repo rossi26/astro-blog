@@ -6,6 +6,8 @@ import Tabs from '../components/Tabs.astro';
 import Ranking  from '../components/ranking.astro';
 import Card from '../components/Card.astro';
 
+
+
 const posts = await Astro.glob('../posts/*.md');
 const sortedPosts = posts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
 const lastPosts = sortedPosts.slice(0, 3);
